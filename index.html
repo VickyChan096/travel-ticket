@@ -24,7 +24,118 @@
   <body>
     <!-- toTop -->
     <a href="#" id="toTop"><i class="fa-solid fa-angles-up"></i></a>
-    <h1>新增旅遊套票</h1>
+    <main class="main wrap">
+      <div class="main__content">
+        <div class="main__content__img">
+          <img src="images/main_img.png" alt="Happy Travel" />
+          <h1><img src="images/logo.png" alt="Let's Travel" /></h1>
+        </div>
+        <div class="main__content__select">
+          <div class="selectCard">
+            <div class="selectCard__title">
+              <i class="fa-regular fa-circle-xmark"></i>
+              <h3>新增旅遊套票</h3>
+            </div>
+            <div class="selectCard__name selectStyle">
+              <p>套票名稱</p>
+              <input type="text" placeholder="請填寫套票名稱" />
+            </div>
+            <div class="selectCard__url selectStyle">
+              <p>圖片網址</p>
+              <input type="text" placeholder="請填寫圖片網址" />
+            </div>
+            <div class="selectCard__area selectStyle">
+              <p>景點地區</p>
+              <select name="" id="" style="padding-left: -20px">
+                <option selected>請選擇景點地區</option>
+                <option value="">台北</option>
+                <option value="">台中</option>
+                <option value="">高雄</option>
+              </select>
+            </div>
+            <div class="selectCard__price selectStyle">
+              <p>套票金額</p>
+              <input
+                type="number"
+                placeholder="請選擇套票金額"
+                min="1000"
+                max="20000"
+                step="1000"
+              />
+            </div>
+            <div class="selectCard__number selectStyle">
+              <p>套票組數</p>
+              <input
+                type="number"
+                placeholder="請選擇套票數量"
+                min="1"
+                max="5"
+              />
+            </div>
+            <div class="selectCard__star selectStyle">
+              <p>套票星級</p>
+              <input
+                type="number"
+                placeholder="請選擇套票星級"
+                min="1"
+                max="5"
+              />
+            </div>
+            <div class="selectCard__describe selectStyle">
+              <p>套票描述</p>
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="5"
+                placeholder="請填寫套票描述（限 100 字）"
+              ></textarea>
+              <!-- <input type="text" placeholder="請填寫套票描述（限 100 字）"> -->
+            </div>
+            <div style="text-align: right">
+              <a class="selectCard__button">新增套票</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <section class="dataWrap">
+      <div class="dataList wrap">
+        <div class="dataList__result">
+          <select class="dataList__result__select" name="" id="">
+            <option selected>地區搜尋</option>
+            <option value="">台北</option>
+            <option value="">台中</option>
+            <option value="">高雄</option>
+          </select>
+          <h3>本次搜尋共 <span>?</span> 筆資料</h3>
+        </div>
+        <ul class="dataList__card">
+          <li class="card">
+            <p class="card__area">台北</p>
+            <div class="card__photo">
+              <img src="images/travel_1.png" alt="" />
+            </div>
+            <div class="card__info">
+              <p class="card__info__star">8.5</p>
+              <h3 class="card__info__title">綠島自由行套裝行程</h3>
+              <p class="card__info__describe">
+                嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。
+              </p>
+              <div class="card__info__price">
+                <p>
+                  <i class="fa-solid fa-circle-exclamation"></i>剩下最後 8 組
+                </p>
+                <div class="price">
+                  <p>TWD</p>
+                  <span>$1,280</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
     <!-- JS -->
     <script src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
