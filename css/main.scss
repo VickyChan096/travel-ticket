@@ -9,26 +9,33 @@
 }
 
 .main {
+    padding: 60px 0;
+
     &__content {
-        max-width: 920px;
-        padding: 60px 95px;
-        margin: 120px auto;
-        display: flex;
+        @include disFlex($ai: top);
         flex-wrap: wrap;
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        box-shadow: 0px 3px 6px #00000029;
+        max-width: 920px;
+        margin: 0 auto;
         border-radius: 12px;
-        opacity: 1;
+        box-shadow: 0px 3px 6px #00000029;
 
         @include pad {
-            justify-content: center;
             box-shadow: none;
         }
 
         &__img {
             width: 350px;
             margin-right: 30px;
-            @include pad{
+
+            h1 {
+                text-indent: -9999px
+            }
+
+            h1 img {
+                margin-top: -24px;
+            }
+
+            @include pad {
                 margin-right: 0;
             }
         }
@@ -67,13 +74,13 @@
             background-color: lighten($c1st, 8%);
         }
     }
-
 }
 
 .selectStyle {
     @include disFlex($jc: space-between);
     margin-bottom: 16px;
-    @include pad{
+
+    @include pad {
         flex-wrap: wrap;
     }
 
@@ -90,7 +97,8 @@
         background-color: $c2nd;
         border: none;
         border-bottom: 2px solid $c1st;
-        @include pad{
+
+        @include pad {
             width: 100%;
         }
 
@@ -109,7 +117,7 @@
 }
 
 .dataWrap {
-    padding: 56px 0 120px;
+    padding-top: 56px;
     background-color: $c2nd;
 }
 
@@ -133,7 +141,8 @@
         flex-wrap: wrap;
         margin-left: -15px;
         margin-right: -15px;
-        @include pad{
+
+        @include pad {
             margin-left: 0;
             margin-right: 0;
         }
@@ -143,18 +152,11 @@
 .card {
     position: relative;
     width: 350px;
-    margin-right: 15px;
-    margin-left: 15px;
-    margin-bottom: 38px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
+    margin: 0 15px 38px;
     border: 1px solid #DEE2E6;
     border-radius: 4px;
-    opacity: 1;
-    // &:nth-child(3n){
-    // margin-right: 0px;
-    // }
-
+    background: #FFF;
+    box-shadow: 0px 3px 6px #00000029;
 
     &__area {
         position: absolute;
@@ -173,12 +175,11 @@
     }
 
     &__photo {
-        overflow: hidden;
-        // height: 232px;
+        height: 180px;
         border-radius: 4px 4px 0 0;
+        overflow: hidden;
 
         & img {
-            transform: scale(1, 1);
             transition: $trsSlow;
         }
     }
@@ -207,7 +208,9 @@
 
         &__describe {
             margin-bottom: 22px;
+            height: 100px;
             color: $c3rd;
+            overflow: hidden;
         }
 
         &__price {
