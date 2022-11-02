@@ -38,19 +38,19 @@
             </div>
             <div class="selectCard__name selectStyle">
               <p>套票名稱</p>
-              <input type="text" placeholder="請填寫套票名稱" />
+              <input type="text" placeholder="請填寫套票名稱" id="itemName"/>
             </div>
             <div class="selectCard__url selectStyle">
               <p>圖片網址</p>
-              <input type="text" placeholder="請填寫圖片網址" />
+              <input type="text" placeholder="請填寫圖片網址" id="itemImg"/>
             </div>
             <div class="selectCard__area selectStyle">
               <p>景點地區</p>
-              <select name="" id="" style="padding-left: -20px">
+              <select name="" id="itemArea"" style="padding-left: -20px">
                 <option selected>請選擇景點地區</option>
-                <option value="">台北</option>
-                <option value="">台中</option>
-                <option value="">高雄</option>
+                <option value="台北">台北</option>
+                <option value="台中">台中</option>
+                <option value="高雄">高雄</option>
               </select>
             </div>
             <div class="selectCard__price selectStyle">
@@ -61,7 +61,7 @@
                 min="1000"
                 max="20000"
                 step="1000"
-              />
+                id="itemPrice"/>
             </div>
             <div class="selectCard__number selectStyle">
               <p>套票組數</p>
@@ -70,6 +70,7 @@
                 placeholder="請選擇套票數量"
                 min="1"
                 max="5"
+                id="itemGroup"
               />
             </div>
             <div class="selectCard__star selectStyle">
@@ -79,16 +80,16 @@
                 placeholder="請選擇套票星級"
                 min="1"
                 max="5"
+                id="itemRate"
               />
             </div>
             <div class="selectCard__describe selectStyle">
               <p>套票描述</p>
               <textarea
-                name=""
-                id=""
                 cols="30"
                 rows="5"
                 placeholder="請填寫套票描述（限 100 字）"
+                id="itemDescription"
               ></textarea>
               <!-- <input type="text" placeholder="請填寫套票描述（限 100 字）"> -->
             </div>
@@ -102,13 +103,13 @@
     <section class="dataWrap">
       <div class="dataList wrap">
         <div class="dataList__result">
-          <select class="dataList__result__select" name="" id="">
+          <select class="dataList__result__select" name="" id="dataList">
             <option selected>地區搜尋</option>
-            <option value="">台北</option>
-            <option value="">台中</option>
-            <option value="">高雄</option>
+            <option value="台北">台北</option>
+            <option value="台中">台中</option>
+            <option value="高雄">高雄</option>
           </select>
-          <h3>本次搜尋共 <span>?</span> 筆資料</h3>
+          <h3>本次搜尋共 <span id="count">?</span> 筆資料</h3>
         </div>
         <ul class="dataList__card">
           <li class="card">
