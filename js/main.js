@@ -163,6 +163,16 @@ _add.addEventListener('click',function(){
   let group = document.getElementById('itemGroup').value;
   let price = document.getElementById('itemPrice').value;
   let rate = document.getElementById('itemRate').value;
+  if(name ===''){
+    alert('請填寫套票名稱');
+    return;
+  }else if(area === '請選擇景點地區'){
+    alert('請選擇地區');
+    return;
+  }else if(description === ''){
+    alert('請填寫描述');
+    return;
+  }
   let newData = {
     id: 2,
     name,

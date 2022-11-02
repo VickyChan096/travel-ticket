@@ -12,18 +12,18 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/main.css" />
     <!-- 標題欄icon -->
-    <link rel="icon" href="images/icon/citylogo.png" type="image/x-icon" />
+    <link rel="icon" href="images/icon.png" type="image/x-icon" />
     <!-- 收藏夾icon -->
     <link
       rel="shortcut icon"
-      href="images/icon/citylogo.png"
+      href="images/icon.png"
       type="image/x-icon"
     />
     <title>新增旅遊套票 - Let's Travel</title>
   </head>
   <body>
     <!-- toTop -->
-    <a href="#" id="toTop"><i class="fa-solid fa-angles-up"></i></a>
+    <a href="#" id="toTop" style="background-color:#00807E"><i class="fa-solid fa-angles-up"></i></a>
     <main class="main wrap">
       <div class="main__content">
         <div class="main__content__img">
@@ -42,12 +42,12 @@
             </div>
             <div class="selectCard__url selectStyle">
               <p>圖片網址</p>
-              <input type="text" placeholder="請填寫圖片網址" id="itemImg"/>
+              <input type="text" placeholder="請填寫圖片網址" id="itemImg" value="images/no_found.png"/>
             </div>
             <div class="selectCard__area selectStyle">
               <p>景點地區</p>
               <select name="" id="itemArea"" style="padding-left: -20px">
-                <option selected>請選擇景點地區</option>
+                <option selected value="請選擇景點地區">請選擇景點地區</option>
                 <option value="台北">台北</option>
                 <option value="台中">台中</option>
                 <option value="高雄">高雄</option>
@@ -61,7 +61,8 @@
                 min="1000"
                 max="20000"
                 step="1000"
-                id="itemPrice"/>
+                id="itemPrice"
+                value="3000"/>
             </div>
             <div class="selectCard__number selectStyle">
               <p>套票組數</p>
@@ -71,6 +72,7 @@
                 min="1"
                 max="5"
                 id="itemGroup"
+                value="2"
               />
             </div>
             <div class="selectCard__star selectStyle">
@@ -79,8 +81,9 @@
                 type="number"
                 placeholder="請選擇套票星級"
                 min="1"
-                max="5"
+                max="10"
                 id="itemRate"
+                value="8"
               />
             </div>
             <div class="selectCard__describe selectStyle">
@@ -91,7 +94,6 @@
                 placeholder="請填寫套票描述（限 100 字）"
                 id="itemDescription"
               ></textarea>
-              <!-- <input type="text" placeholder="請填寫套票描述（限 100 字）"> -->
             </div>
             <div style="text-align: right">
               <a class="selectCard__button">新增套票</a>
