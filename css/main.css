@@ -325,10 +325,16 @@ input, select, textarea {
   margin-bottom: 52px;
   color: #818A91;
 }
+@media only screen and (max-width: 1110px) {
+  .dataList__result {
+    flex-wrap: wrap;
+  }
+}
 .dataList__result__select {
-  width: 255px;
+  width: 250px;
   padding: 6px 12px;
   margin-right: 8px;
+  margin-bottom: 4px;
   color: #818A91;
 }
 .dataList__card {
