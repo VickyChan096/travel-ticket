@@ -123,15 +123,14 @@
 
 .dataList {
     &__result {
-        @include disFlex($jc: left);
+        @include disFlex;
         margin-bottom: 52px;
-        padding-left: 50px;
         color: $c3rd;
 
         &__select {
             width: 255px;
             padding: 6px 12px;
-            margin-right: 30px;
+            margin-right: 8px;
             color: $c3rd;
         }
     }

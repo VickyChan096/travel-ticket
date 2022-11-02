@@ -52,9 +52,10 @@ let data = [
   },
 ];
 
+const _dataList = document.getElementById('dataList');
 let _list = document.querySelector('.dataList__card');
-let count = document.getElementById('count');
-const dataList = document.getElementById('dataList');
+let _count = document.getElementById('count');
+let _add = document.querySelector('.selectCard__button');
 
 function init() {
   let str = '';
@@ -86,14 +87,13 @@ function init() {
     str += content;
     _list.innerHTML = str;
   });
-  count.textContent = countNum;
+  _count.textContent = countNum;
 }
 init();
 
-function showList(e) {
+function showList() {
   let select = document.getElementById('dataList').value;
   let countNum = 0;
-
   let str = '';
   data.forEach(function (item) {
     if (select === item.area) {
@@ -149,13 +149,13 @@ function showList(e) {
     }
     _list.innerHTML = str;
   });
-  count.textContent = countNum;
+  _count.textContent = countNum;
 
 }
-dataList.addEventListener('change', showList);
+_dataList.addEventListener('change', showList);
 
-let _add = document.querySelector('.selectCard__button');
 _add.addEventListener('click',function(){
+  let id = data[data.length-1].id+1;
   let name = document.getElementById('itemName').value;
   let imgUrl = document.getElementById('itemImg').value;
   let area = document.getElementById('itemArea').value;
@@ -163,6 +163,17 @@ _add.addEventListener('click',function(){
   let group = document.getElementById('itemGroup').value;
   let price = document.getElementById('itemPrice').value;
   let rate = document.getElementById('itemRate').value;
+  let newData = {
+    id,
+    name,
+    imgUrl,
+    area,
+    description,
+    group,
+    price,
+    rate,
+  };
+
   if(name ===''){
     alert('請填寫套票名稱');
     return;
@@ -173,18 +184,6 @@ _add.addEventListener('click',function(){
     alert('請填寫描述');
     return;
   }
-  let newData = {
-    id: 2,
-    name,
-    imgUrl,
-    area,
-    description,
-    group,
-    price,
-    rate,
-  };
   data.push(newData);
   init();
 })
-
-// console.log(data);
