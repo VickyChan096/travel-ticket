@@ -112,16 +112,29 @@
             color: $c3rd;
         }
     }
+    &__card{
+        @include disFlex;
+        flex-wrap: wrap;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
 }
 
 .card {
     position: relative;
     width: 350px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 38px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border: 1px solid #DEE2E6;
     border-radius: 4px;
     opacity: 1;
+    // &:nth-child(3n){
+    // margin-right: 0px;
+    // }
+
 
     &__area {
         position: absolute;
