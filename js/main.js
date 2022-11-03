@@ -1,19 +1,3 @@
-// toTop
-$(function () {
-  $('#toTop').click(function () {
-    $('html,body').animate({ scrollTop: 0 }, 1000);
-    return false;
-  });
-
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 200) {
-      $('#toTop').fadeIn();
-    } else {
-      $('#toTop').fadeOut();
-    }
-  });
-});
-
 let data = [
   {
     id: 0,
@@ -52,110 +36,87 @@ let data = [
   },
 ];
 
+// toTop
+$(function () {
+  $('#toTop').click(function () {
+    $('html,body').animate({ scrollTop: 0 }, 1000);
+    return false;
+  });
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 200) {
+      $('#toTop').fadeIn();
+    } else {
+      $('#toTop').fadeOut();
+    }
+  });
+});
+
 const _dataList = document.getElementById('dataList');
 let _list = document.querySelector('.dataList__card');
-let _count = document.getElementById('count');
 let _add = document.querySelector('.selectCard__button');
 
 function init() {
-  let str = '';
-  let countNum = 0;
-  data.forEach(function (item) {
-    countNum+=1;
-    let content = `<li class="card">
-            <p class="card__area">${item.area}</p>
-            <div class="card__photo">
-              <img src="${item.imgUrl}" alt="" />
-            </div>
-            <div class="card__info">
-              <p class="card__info__star">${item.rate}</p>
-              <h3 class="card__info__title">${item.name}</h3>
-              <p class="card__info__describe">
-                ${item.description}
-              </p>
-              <div class="card__info__price">
-                <p>
-                  <i class="fa-solid fa-circle-exclamation"></i>剩下最後 ${item.group} 組
-                </p>
-                <div class="price">
-                  <p>TWD</p>
-                  <span>$${item.price}</span>
-                </div>
-              </div>
-            </div>
-          </li>`;
-    str += content;
-    _list.innerHTML = str;
-  });
-  _count.textContent = countNum;
+  createList();
 }
 init();
 
-function showList() {
-  let select = document.getElementById('dataList').value;
-  let countNum = 0;
+function createList() {
   let str = '';
-  data.forEach(function (item) {
-    if (select === item.area) {
-      countNum+=1;
-      let content = `<li class="card">
-            <p class="card__area">${item.area}</p>
-            <div class="card__photo">
-              <img src="${item.imgUrl}" alt="" />
-            </div>
-            <div class="card__info">
-              <p class="card__info__star">${item.rate}</p>
-              <h3 class="card__info__title">${item.name}</h3>
-              <p class="card__info__describe">
-                ${item.description}
-              </p>
-              <div class="card__info__price">
-                <p>
-                  <i class="fa-solid fa-circle-exclamation"></i>剩下最後 ${item.group} 組
-                </p>
-                <div class="price">
-                  <p>TWD</p>
-                  <span>$${item.price}</span>
-                </div>
-              </div>
-            </div>
-          </li>`;
-      str += content;
-    } else if(select === '地區搜尋'){
-      countNum += 1;
-      let content = `<li class="card">
-            <p class="card__area">${item.area}</p>
-            <div class="card__photo">
-              <img src="${item.imgUrl}" alt="" />
-            </div>
-            <div class="card__info">
-              <p class="card__info__star">${item.rate}</p>
-              <h3 class="card__info__title">${item.name}</h3>
-              <p class="card__info__describe">
-                ${item.description}
-              </p>
-              <div class="card__info__price">
-                <p>
-                  <i class="fa-solid fa-circle-exclamation"></i>剩下最後 ${item.group} 組
-                </p>
-                <div class="price">
-                  <p>TWD</p>
-                  <span>$${item.price}</span>
-                </div>
-              </div>
-            </div>
-          </li>`;
-      str += content;
-    }
-    _list.innerHTML = str;
+  data.forEach((item) => {
+    str += getContent(item);
   });
-  _count.textContent = countNum;
-
+  _list.innerHTML = str;
 }
-_dataList.addEventListener('change', showList);
 
-_add.addEventListener('click',function(){
-  let id = data[data.length-1].id+1;
+function getContent(item) {
+  let content = `<li class="card">
+            <p class="card__area">${item.area}</p>
+            <div class="card__photo">
+              <img src="${item.imgUrl}" alt="" />
+            </div>
+            <div class="card__info">
+              <p class="card__info__star">${item.rate}</p>
+              <h3 class="card__info__title">${item.name}</h3>
+              <p class="card__info__describe">
+                ${item.description}
+              </p>
+              <div class="card__info__price">
+                <p>
+                  <i class="fa-solid fa-circle-exclamation"></i>剩下最後 ${item.group} 組
+                </p>
+                <div class="price">
+                  <p>TWD</p>
+                  <span>$${item.price}</span>
+                </div>
+              </div>
+            </div>
+          </li>`;
+  return content;
+}
+
+function changeList() {
+  let select = document.getElementById('dataList').value;
+  let str = '';
+  let newData;
+
+  if (select === '地區搜尋') {
+    newData = data;
+  } else {
+    newData = data.filter((item) => {
+      return item.area === select;
+    });
+  }
+
+  newData.forEach((item) => {
+    str += getContent(item);
+  });
+  _list.innerHTML = str;
+}
+_dataList.addEventListener('change', changeList);
+
+_add.addEventListener('click', function () {
+  let id = data[data.length - 1].id + 1;
   let name = document.getElementById('itemName').value;
   let imgUrl = document.getElementById('itemImg').value;
   let area = document.getElementById('itemArea').value;
@@ -174,16 +135,19 @@ _add.addEventListener('click',function(){
     rate,
   };
 
-  if(name ===''){
-    alert('請填寫套票名稱');
-    return;
-  }else if(area === '請選擇景點地區'){
-    alert('請選擇地區');
-    return;
-  }else if(description === ''){
-    alert('請填寫描述');
+  let message = '';
+
+  if (name === '') {
+    message += '請填寫套票名稱 \n';
+  }
+  if (area === '') {
+    message += '請選擇地區 \n';
+  }
+
+  if(message !== ''){
+    alert(message);
     return;
   }
   data.push(newData);
-  init();
-})
+  createList();
+});
