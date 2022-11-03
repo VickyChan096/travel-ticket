@@ -16,7 +16,6 @@
     margin: 20px auto;
     padding: 5% 10%;
     width: 90%;
-    box-shadow: none;
   }
   &__img {
     width: 350px;
@@ -97,7 +96,6 @@
 
 .content {
   padding: 20px 0 40px;
-  background-color: $c2nd;
 
   &__result {
     display: flex;
