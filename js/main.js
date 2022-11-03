@@ -144,6 +144,7 @@ function addNewTicket() {
   alert('新增套票成功!!');
   document.getElementById('ticketName').value = '';
   document.getElementById('ticketDescription').value = '';
+  document.querySelector('.content__result__select').value = '地區搜尋';
 }
 _addBtn.addEventListener('click', addNewTicket);
 
