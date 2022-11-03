@@ -135,7 +135,6 @@ table {
 *::before,
 *::after {
   box-sizing: border-box;
-  outline: 1px solid #aaa;
 }
 
 body {
@@ -221,14 +220,19 @@ body {
   .main {
     flex-wrap: wrap;
     margin: 20px auto;
-    padding: 0;
-    width: 300px;
+    padding: 10px;
+    width: 90%;
     box-shadow: none;
     border-radius: 0;
   }
 }
 .main__img {
   width: 350px;
+}
+@media only screen and (max-width: 350px) {
+  .main__img img {
+    display: none;
+  }
 }
 .main__img h1 {
   width: 350px;
@@ -239,8 +243,21 @@ body {
   white-space: nowrap;
   overflow: hidden;
 }
+@media only screen and (max-width: 350px) {
+  .main__img h1 {
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
 .main__addTicket {
   width: 350px;
+}
+@media only screen and (max-width: 992px) {
+  .main__addTicket {
+    width: 100%;
+  }
 }
 .main__addTicket h2 {
   margin-bottom: 32px;
@@ -311,6 +328,11 @@ body {
   padding-left: 95px;
   margin-bottom: 52px;
 }
+@media only screen and (max-width: 992px) {
+  .content__result {
+    flex-wrap: wrap;
+  }
+}
 .content__result__select {
   margin-right: 30px;
   padding: 8px;
@@ -333,12 +355,25 @@ body {
   margin-left: -15px;
   margin-right: -15px;
 }
+@media only screen and (max-width: 992px) {
+  .content__cards {
+    margin: 0;
+  }
+}
 
 .card {
   position: relative;
   margin: 0 15px 30px;
   width: 350px;
   border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+}
+@media only screen and (max-width: 350px) {
+  .card {
+    margin: 0;
+    width: 100%;
+  }
 }
 .card__area {
   position: absolute;
@@ -354,6 +389,11 @@ body {
   width: 350px;
   height: 180px;
   overflow: hidden;
+}
+@media only screen and (max-width: 992px) {
+  .card__photo {
+    width: 100%;
+  }
 }
 .card__photo img {
   transition: all 0.2s;
@@ -382,12 +422,19 @@ body {
 }
 .card__info h4 {
   margin-bottom: 22px;
+  height: 80px;
+  overflow: hidden;
 }
 .card__info__charge {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #00807E;
+}
+@media only screen and (max-width: 992px) {
+  .card__info__charge {
+    flex-wrap: wrap;
+  }
 }
 .card__info__charge i {
   margin-right: 4px;
