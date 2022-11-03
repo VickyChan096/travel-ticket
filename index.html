@@ -4,27 +4,106 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- toTop Icon -->
     <script
       src="https://kit.fontawesome.com/41b7cdd317.js"
       crossorigin="anonymous"
     ></script>
-    <!-- CSS -->
     <link rel="stylesheet" href="css/main.css" />
-    <!-- 標題欄icon -->
-    <link rel="icon" href="images/icon/citylogo.png" type="image/x-icon" />
-    <!-- 收藏夾icon -->
+    <link rel="icon" href="images/icon.png" type="image/x-icon" />
     <link
       rel="shortcut icon"
-      href="images/icon/citylogo.png"
+      href="images/icon.png"
       type="image/x-icon"
     />
-    <title>本頁名稱 - 網站目錄 - 網站名稱</title>
+    <title>新增旅遊票套｜Let's Travel</title>
   </head>
   <body>
     <!-- toTop -->
     <a href="#" id="toTop"><i class="fa-solid fa-angles-up"></i></a>
-    <h1>本頁第一標題，僅此一個</h1>
+
+    <main>
+      <div class="container">
+        <div class="main">
+          <div class="main__img">
+            <img src="images/main_img.png" alt="搜尋星球">
+            <h1>Let's Travel!</h1>
+          </div>
+          <div class="main__addTicket">
+            <h2><i class="fa-regular fa-circle-xmark"></i>新增旅遊套票</h2>
+            <ul class="main__addTicket__options">
+              <li>
+                <p>套票名稱</p>
+                <input type="text" placeholder="請填寫套票名稱">
+              </li>
+              <li>
+                <p>圖片網址</p>
+                <input type="text" placeholder="請填寫圖片網址" value="images/no_found.png">
+              </li>
+              <li>
+                <p>景點地區</p>
+                <select>
+                  <option value="台北">台北</option>
+                  <option value="台中">台中</option>
+                  <option value="高雄">高雄</option>
+                </select>
+              </li>
+              <li>
+                <p>套票金額</p>
+                <input value="1000" type="number" step="100" min="1000" max="9999" oninput="if(value.length>4)value=value.slice(0,4)">
+              </li>
+              <li>
+                <p>套票組數</p>
+                <input value="1" type="number" step="1" min="1" max="99" oninput="if(value.length>2)value=value.slice(0,2)">
+              </li>
+              <li>
+                <p>套票星級</p>
+                <input value="8" type="number" step="1" min="5" max="10" oninput="if(value<=5)value=5; if(value>10)value=10;">
+              </li>
+              <li>
+                <p>套票描述</p>
+                <textarea cols="10" rows="10" placeholder="請填寫套票描述（限 100 字）"></textarea>
+              </li>
+            </ul>
+            <button class="btn btn-r">新增套票</button>
+          </div>
+        </div>
+      </div>
+    </main>
+		<section class="content">
+			<div class="container">
+				<div class="content__result">
+					<select class="content__result__select">
+						<option value="地區搜尋">地區搜尋</option>
+						<option value="台北">台北</option>
+						<option value="台中">台中</option>
+						<option value="高雄">高雄</option>
+					</select>
+					<p>本次搜尋共 <span>?</span> 筆資料</p>
+				</div>
+				<ul class="content__cards">
+					<li class="card">
+						<p class="card__area">台北</p>
+						<div class="card__photo">
+							<img src="images/travel_1.png">
+						</div>
+						<p class="card__rate">8.6</p>
+						<div class="card__info">
+							<h3>綠島自由行套裝行程</h3>
+							<h4>嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。</h4>
+							<div class="card__info__charge">
+								<p><i class="fa-solid fa-circle-exclamation"></i>剩下最後?組</p>
+								<p>TWD<span>$1,280</span></p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+
+
+
+
     <!-- JS -->
     <script src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>

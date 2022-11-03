@@ -141,7 +141,7 @@ table {
 *::before,
 *::after {
   box-sizing: border-box;
-  // outline: 1px solid #aaa;
+  outline: 1px solid #aaa;
 }
 
 body {
@@ -161,4 +161,8 @@ a {
 
 sub {
   vertical-align: sub;
+}
+
+input, select, textarea {
+  outline: none;
 }

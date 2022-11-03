@@ -9,20 +9,22 @@
   font-size: $fz-s * 2;
   text-align: center;
   color: #fff;
-  background-color: #000;
+  background-color: $c1st;
   border-radius: 50%;
 }
 
 //Button樣式
 .btn {
-  display: inline-block;
-  padding: 6px 12px;
+  padding: 10px 40px;
   text-align: center;
   white-space: nowrap;
   user-select: none;
-  border-radius: 20px;
-  background-color: blue;
-  transition: $trsSlow;
+  color: #fff;
+  font-size: $fz-s * 1.25;
+  border: none;
+  border-radius: 5px;
+  background-color: $c1st;
+  transition: $trsFast;
   cursor: pointer;
 
   &:hover {
@@ -30,28 +32,13 @@
   }
 }
 
-// .btnPrimary {
-//   color:
-//   background-color:
-// }
+body {
+  color: $c3rd;
+  font-size: $fz-s;
+  font-weight: $fw-m;
+}
 
-// .btnSecondary{
-//   color:
-//   background-color:
-// }
-
-// .btnTertiary{
-//   color:
-//   background-color:
-// }
-
-// body {
-//   color: #000;
-//   font-size:
-//   font-weight:
-// }
-
-// .container {
-//   margin: 0 auto;
-//   max-width: 1200px;
-// }
+.container {
+  margin: 0 auto;
+  max-width: 1110px;
+}
