@@ -95,6 +95,7 @@ function selectArea() {
 _select.addEventListener('change', selectArea);
 
 function addNewTicket() {
+  const formEl = document.getElementById('addTicket-form');
   const id = data[data.length - 1].id + 1;
   const name = document.getElementById('ticketName').value;
   const imgUrl = document.getElementById('ticketImg').value;
@@ -142,12 +143,7 @@ function addNewTicket() {
   data.push(newTicket);
   createList();
   alert('新增套票成功!!');
-  // document.getElementById('ticketName').value = '';
-  // document.getElementById('ticketDescription').value = '';
-
-     const formEl = document.getElementById('addTicket-form');
-     formEl.reset();
-
+  formEl.reset();
   document.querySelector('.content__result__select').value = '地區搜尋';
 }
 _addBtn.addEventListener('click', addNewTicket);
