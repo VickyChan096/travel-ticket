@@ -142,8 +142,12 @@ function addNewTicket() {
   data.push(newTicket);
   createList();
   alert('新增套票成功!!');
-  document.getElementById('ticketName').value = '';
-  document.getElementById('ticketDescription').value = '';
+  // document.getElementById('ticketName').value = '';
+  // document.getElementById('ticketDescription').value = '';
+
+     const formEl = document.getElementById('addTicket-form');
+     formEl.reset();
+
   document.querySelector('.content__result__select').value = '地區搜尋';
 }
 _addBtn.addEventListener('click', addNewTicket);
