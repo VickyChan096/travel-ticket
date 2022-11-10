@@ -2,7 +2,7 @@ const _content = document.querySelector('.content__cards');
 const _contentNum = document.getElementById('contentNum');
 const _select = document.querySelector('.content__result__select');
 const _addBtn = document.getElementById('addBtn');
-let data = [];
+let _data = [];
 
 function init() {
   axios
@@ -10,7 +10,7 @@ function init() {
       'https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json'
     )
     .then(function (response) {
-      data = response.data.data;
+      _data = response.data.data;
       createList();
     })
     .catch(function (error) {
@@ -21,13 +21,13 @@ function init() {
 init();
 
 function createList() {
-  let sortData = sortID(data);
+  let sortData = sortID(_data);
   let str = '';
   sortData.forEach((item) => {
     str += createCard(item);
   });
   _content.innerHTML = str;
-  _contentNum.textContent = data.length;
+  _contentNum.textContent = _data.length;
 }
 
 function sortID(data) {
@@ -64,9 +64,9 @@ function selectArea() {
   let str = '';
   let newData = [];
   if (area === '地區搜尋') {
-    newData = data;
+    newData = _data;
   } else {
-    newData = data.filter((item) => item.area === area);
+    newData = _data.filter((item) => item.area === area);
   }
   let sortData = sortID(newData);
   sortData.forEach((item) => {
@@ -80,10 +80,10 @@ _select.addEventListener('change', selectArea);
 function addNewTicket() {
   const formEl = document.getElementById('addTicket-form');
   let id = '';
-  if (data.length === 0) {
+  if (_data.length === 0) {
     id = 0;
   } else {
-    id = data[data.length - 1].id + 1;
+    id = _data[_data.length - 1].id + 1;
   }
   const name = document.getElementById('ticketName').value;
   const imgUrl = document.getElementById('ticketImg').value;
@@ -128,7 +128,7 @@ function addNewTicket() {
     alert(message);
     return;
   }
-  data.push(newTicket);
+  _data.push(newTicket);
   createList();
   alert('新增套票成功!!');
   formEl.reset();
