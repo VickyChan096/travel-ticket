@@ -160,6 +160,10 @@ input, select, textarea {
   outline: none;
 }
 
+.fa, .far, .fas {
+  font-family: "Font Awesome 5 Pro";
+}
+
 #toTop {
   z-index: 90;
   display: none;
