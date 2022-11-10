@@ -7,7 +7,7 @@ let data = [];
 function init() {
   axios
     .get(
-      'https://raw.githubusercontent.com/hexschool/js-training/main/1travelApi.json'
+      'https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json'
     )
     .then(function (response) {
       data = response.data.data;
