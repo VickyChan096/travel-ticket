@@ -21,21 +21,19 @@ function init() {
 init();
 
 function createList() {
-  let sortData = sortID(_data);
+  sortID();
   let str = '';
-  sortData.forEach((item) => {
+  _data.forEach((item) => {
     str += createCard(item);
   });
   _content.innerHTML = str;
   _contentNum.textContent = _data.length;
 }
 
-function sortID(data) {
-  let result = [...data];
-  result.sort(function (a, b) {
+function sortID() {
+  _data.sort(function (a, b) {
     return b.id - a.id;
   });
-  return result;
 }
 
 function createCard(item) {
@@ -68,8 +66,7 @@ function selectArea() {
   } else {
     newData = _data.filter((item) => item.area === area);
   }
-  let sortData = sortID(newData);
-  sortData.forEach((item) => {
+  newData.forEach((item) => {
     str += createCard(item);
   });
   _content.innerHTML = str;
@@ -83,7 +80,7 @@ function addNewTicket() {
   if (_data.length === 0) {
     id = 0;
   } else {
-    id = _data[_data.length - 1].id + 1;
+    id = _data[0].id + 1;
   }
   const name = document.getElementById('ticketName').value;
   const imgUrl = document.getElementById('ticketImg').value;
