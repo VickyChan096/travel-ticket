@@ -369,8 +369,8 @@ body {
   }
 }
 .content__statistics__chart {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
 }
 .content__cards {
   display: flex;
