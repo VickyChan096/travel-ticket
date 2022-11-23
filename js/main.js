@@ -1,6 +1,6 @@
 const _content = document.querySelector('.content__cards');
 const _contentNum = document.getElementById('contentNum');
-const _select = document.querySelector('.content__result__select');
+const _select = document.querySelector('.resultSelect');
 const _addBtn = document.getElementById('addBtn');
 let _data = [];
 
@@ -132,6 +132,17 @@ function addNewTicket() {
   document.querySelector('.content__result__select').value = '地區搜尋';
 }
 _addBtn.addEventListener('click', addNewTicket);
+
+let chart = c3.generate({
+  bindto: '#chart', // HTML 元素綁定
+  data: {
+    columns: [
+      ['data1', 30, 200, 100, 400, 150, 250],
+      ['data2', 50, 20, 10, 40, 15, 25],
+    ], // 資料存放
+    type: 'pie', // 圖表種類
+  },
+});
 
 // toTop
 $(function () {

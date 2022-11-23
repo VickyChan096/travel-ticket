@@ -5,25 +5,29 @@
 
 .main {
   @include disFlex;
-  margin: 60px auto;
+  margin: 50px auto 0;
   padding: 60px 95px;
   width: 920px;
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 12px;
   background-color: #fff;
+
   @include pad {
     flex-wrap: wrap;
     margin: 20px auto;
     padding: 5% 10%;
     width: 90%;
   }
+
   &__img {
     width: 350px;
+
     @include mobile {
       img {
         display: none;
       }
     }
+
     h1 {
       width: 350px;
       height: 235px;
@@ -32,6 +36,7 @@
       text-indent: 101%;
       white-space: nowrap;
       overflow: hidden;
+
       @include mobile {
         width: 100%;
         background-size: contain;
@@ -40,30 +45,38 @@
       }
     }
   }
+
   &__addTicket {
     width: 350px;
+
     @include pad {
       width: 100%;
     }
+
     h2 {
       margin-bottom: 32px;
       color: $c1st;
       font-size: $fz-s * 1.5;
       font-weight: $fw-l;
       border-bottom: 3px solid $c1st;
+
       i {
         padding-right: 6px;
       }
     }
+
     &__options li {
       @include disFlex($jc: space-between);
       margin-bottom: 16px;
+
       @include pad {
         flex-wrap: wrap;
       }
+
       p {
         color: $c1st;
       }
+
       input,
       select,
       textarea {
@@ -76,18 +89,22 @@
         border-radius: 0px;
         background-color: $c2nd;
         -webkit-appearance: none;
+
         @include pad {
           width: 100%;
         }
       }
+
       input::placeholder {
         color: $c3rd;
       }
+
       textarea {
         height: 130px;
         resize: none;
       }
     }
+
     button {
       float: right;
     }
@@ -95,42 +112,63 @@
 }
 
 .content {
-  padding: 20px 0 40px;
+  padding: 40px;
 
-  &__result {
+  &__statistics {
     display: flex;
-    align-items: center;
-    padding-left: 95px;
-    margin-bottom: 52px;
-    @include pad {
-      flex-wrap: wrap;
-      padding-left: 0;
+    align-items: start;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    @include pad{
+      align-items: center;
     }
-    &__select {
-      margin-right: 30px;
-      padding: 8px;
-      width: 255px;
-      height: 38px;
-      color: $c3rd;
-      border: 1px solid $c3rd;
-      -webkit-appearance: none;
-      @include pad{
-        margin: 0 15px;
+
+    &__result {
+      display: flex;
+      align-items: center;
+      margin-bottom: 52px;
+      // width: 600px;
+
+      @include pad {
+        flex-wrap: wrap;
+        padding-left: 0;
+      }
+
+      .resultSelect {
+        margin-right: 30px;
+        padding: 8px;
+        width: 200px;
+        height: 38px;
+        color: $c3rd;
+        border: 1px solid $c3rd;
+        -webkit-appearance: none;
+
+        @include pad {
+          margin: 0 15px;
+        }
+      }
+
+      @include pad {
+        justify-content: center;
       }
     }
-    @include pad {
-      justify-content: center;
+    &__chart{
+      width: 200px;
+      height: 200px;
     }
   }
+
   &__cards {
     @include disFlex;
     flex-wrap: wrap;
     width: 100%;
+
     @include pad {
       margin: 0;
     }
   }
 }
+
 
 .card {
   position: relative;
@@ -139,7 +177,8 @@
   border-radius: 4px;
   background-color: #fff;
   box-shadow: 0px 3px 6px #00000029;
-  @include pad{
+
+  @include pad {
     width: 350px;
   }
 
@@ -153,17 +192,21 @@
     background-color: $c4th;
     z-index: 1;
   }
+
   &__photo {
     width: 100%;
     height: 180px;
     overflow: hidden;
+
     img {
       transition: $trsFast;
     }
   }
+
   &:hover img {
     transform: scale(1.2, 1.2);
   }
+
   &__rate {
     position: absolute;
     top: 160px;
@@ -176,6 +219,7 @@
 
   &__info {
     padding: 20px;
+
     h3 {
       margin-bottom: 20px;
       color: $c1st;
@@ -183,20 +227,25 @@
       font-weight: $fw-l;
       border-bottom: 2px solid $c1st;
     }
+
     h4 {
       margin-bottom: 22px;
       height: 80px;
       overflow: hidden;
     }
+
     &__charge {
       @include disFlex($jc: space-between);
       color: $c1st;
+
       @include pad {
         flex-wrap: wrap;
       }
+
       i {
         margin-right: 4px;
       }
+
       span {
         margin-left: 4px;
         font-size: $fz-s * 2;
