@@ -12,6 +12,7 @@ function init() {
     .then(function (response) {
       _data = response.data.data;
       createList();
+      c3Render();
     })
     .catch(function (error) {
       alert('遠端資料異常');
@@ -127,31 +128,47 @@ function addNewTicket() {
   }
   _data.push(newTicket);
   createList();
+  c3Render();
   alert('新增套票成功!!');
   formEl.reset();
-  document.querySelector('.content__result__select').value = '地區搜尋';
+  document.querySelector('.resultSelect').value = '地區搜尋';
 }
 _addBtn.addEventListener('click', addNewTicket);
 
-let chart = c3.generate({
-  bindto: '#chart', // HTML 元素綁定
-  data: {
-    columns: [
-      ['高雄', 2],
-      ['台中', 1],
-      ['台北', 1],
-    ], // 資料存放
-    type: 'donut', // 圖表種類
-    colors: {
-      高雄: '#E68618',
-      台中: '#5151D3',
-      台北: '#26BFC7',
+function c3Render() {
+  let taipei = 0;
+  let taichung = 0;
+  let kaohsiung = 0;
+  _data.forEach(function (item) {
+    if (item.area == '台北') {
+      taipei += 1;
+    } else if (item.area == '台中') {
+      taichung += 1;
+    } else if (item.area == '高雄') {
+      kaohsiung += 1;
+    }
+  });
+
+  let chart = c3.generate({
+    bindto: '#chart',
+    data: {
+      columns: [
+        ['高雄', kaohsiung],
+        ['台中', taichung],
+        ['台北', taipei],
+      ],
+      type: 'donut',
+      colors: {
+        高雄: '#E68618',
+        台中: '#5151D3',
+        台北: '#26BFC7',
+      },
     },
-  },
-  donut: {
-    title: '套票地區比重',
-  },
-});
+    donut: {
+      title: '套票地區比重',
+    },
+  });
+}
 
 // toTop
 $(function () {
