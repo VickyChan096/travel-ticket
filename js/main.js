@@ -87,9 +87,9 @@ function addNewTicket() {
   const imgUrl = document.getElementById('ticketImg').value;
   const area = document.getElementById('ticketArea').value;
   const description = document.getElementById('ticketDescription').value;
-  const group = document.getElementById('ticketGroup').value;
-  const price = document.getElementById('ticketPrice').value;
-  const rate = document.getElementById('ticketRate').value;
+  const group = document.getElementById('ticketGroup').value*1;
+  const price = document.getElementById('ticketPrice').value*1;
+  const rate = document.getElementById('ticketRate').value*1;
   const newTicket = {
     id,
     name,
